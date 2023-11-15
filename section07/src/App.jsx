@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react'
-import './App.css'
-import Header from './components/Header'
-import TodoEditor from './components/TodoEditor'
-import TodoList from './components/TodoList'
+import { useState, useRef } from 'react';
+import './App.css';
+import Header from './components/Header';
+import TodoEditor from './components/TodoEditor';
+import TodoList from './components/TodoList';
 
 const mockData = [
   {
@@ -39,28 +39,34 @@ function App() {
       isDone : false,
       content,
       createdDate: new Date().getTime()
-    }
+    };
     
     setTodos([newTodo, ...todos]);
-  }
+  };
 
   const onUpdate = (targetId) => {
     setTodos(
-      todos.map((todo) => {
+      todos.map((todo) =>
         todo.id === targetId 
-        ? {...todo, isDone : !todo.isDone} 
-        : todo
-      })
+          ? { ...todo, isDone : !todo.isDone }
+          : todo
+      )
+    );
+  };
+
+  const onDelete = (targetId) => {
+    setTodos(
+      todos.filter((todo) => todo.id !== targetId)
     );
   };
 
   return (
-    <div className='App'>
-      <Header/>
-      <TodoEditor onCreate={onCreate}/>
-      <TodoList todos={todos} onUpdate={onUpdate}/>
+    <div className="App">
+      <Header />
+      <TodoEditor onCreate={onCreate} />
+      <TodoList todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
