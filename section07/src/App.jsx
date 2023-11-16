@@ -1,4 +1,4 @@
-import { useState, useRef, useReducer } from 'react';
+import { useState, useRef, useReducer, useCallback } from 'react';
 import './App.css';
 import Header from './components/Header';
 import TodoEditor from './components/TodoEditor';
@@ -65,7 +65,8 @@ function App() {
     // setTodos([newTodo, ...todos]);
   };
 
-  const onUpdate = (targetId) => {
+  // useCallback - 함수 재생성 방지
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       data: targetId
@@ -77,9 +78,9 @@ function App() {
     //       : todo
     //   )
     // );
-  };
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: "DELETE",
       data: targetId
@@ -87,7 +88,7 @@ function App() {
     // setTodos(
     //   todos.filter((todo) => todo.id !== targetId)
     // );
-  };
+  },[]);
 
   return (
     <div className="App">

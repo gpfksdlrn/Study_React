@@ -1,9 +1,10 @@
 import './TodoItem.css';
+import { memo } from 'react';
 
-export default function TodoItem({
-    id, 
-    isDone, 
-    createdDate, 
+function TodoItem({
+    id,
+    isDone,
+    createdDate,
     content,
     onUpdate,
     onDelete,
@@ -25,3 +26,5 @@ export default function TodoItem({
         </div>
     );
 }
+
+export default memo(TodoItem);
