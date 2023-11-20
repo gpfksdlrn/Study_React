@@ -1,0 +1,31 @@
+/* CSS Module
+1. 목적:
+    React의 CSS Modules는 스타일을 컴포넌트 스코프로 제한하여 전역 스타일 충돌을 방지하는 기술입니다.
+2. 파일 명명 규칙:
+    CSS Modules를 사용하려면 스타일 파일을 .module.css 또는 .module.scss로 명명해야 합니다.
+3. 고유한 클래스 이름 생성:
+    명명된 파일은 컴파일될 때 각 클래스마다 고유한 해시를 생성하여 고유한 클래스 이름을 부여합니다.
+4. 스타일 적용 방법:
+    React 컴포넌트에서 CSS Modules를 사용하려면 import 문을 통해 스타일을 불러오고, 해당 클래스를 JSX의 className 속성에 적용합니다.
+5. 독립적인 스타일 관리:
+    각 컴포넌트는 자체 클래스 이름을 사용하여 독립적으로 스타일을 관리하므로, 다른 컴포넌트에 영향을 주지 않습니다.
+*/
+.header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 10px;
+}
