@@ -61,3 +61,16 @@ Page Router vs App Router
                  폴더 구조를 기반으로 라우팅을 제공
                  동적 경로에 대응함
 2. App Router : Next 13 버전부터 제공, 새롭게 출시된 기능으로 아직 불안정한 부분이 존재
+
+
+# Next.js 렌더링 방식 - MPA(Multi Page Application)
+1. SSR(Server Side Rendering - 서버 사이드 렌더링) : 서버측에서 렌더링하는 방식
+
+2. SSG(Static Site Generation - 정적 사이트 생성)
+   : 클라이언트에서 필요한 페이지들을 사전에 미리 준비해뒀다가 요청을 받으면 이미 완성된
+     파일을 단순히 반환하여 브라우저에서 뷰를 보여지게 된다.
+     
+3. ISR(Incremental Static Regeneration - 증분 정적 재생성) : 일정 시간을 주기로 정적 페이지를 다시 재생성 하는 기술
+    V1 : 이미 만들어져 있는 페이지를 반환 -> 매우 빠른 속도로 렌더링(SSG의 장점)
+    - (일정시간이 지난 후)
+    V2 : 주기적으로 업데이트 됨 -> 최신 데이터를 반영함(SSR의 장점)

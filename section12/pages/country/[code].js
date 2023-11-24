@@ -1,7 +1,6 @@
 import { fetchCountry } from "@/api";
 import SubLayout from "@/components/SubLayout";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export default function Country({country}){
     const router = useRouter();
@@ -41,6 +40,7 @@ export const getStaticPaths = async() => {
 
 export const getStaticProps = async (context) => {
     const {code} = context.params;
+    console.log(`${code} 페이지 생성`);
 
     let country = null;
 
@@ -51,6 +51,7 @@ export const getStaticProps = async (context) => {
     return {
         props: {
             country
-        }
+        },
+        revalidate: 3,
     };
 };
